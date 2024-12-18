@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jalta Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Preload critical fries images -->
+    <link rel="preload" fetchpriority="high" as="image" href="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=400">
+    <link rel="preload" fetchpriority="high" as="image" href="https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=400">
+    <link rel="preload" fetchpriority="high" as="image" href="https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg?auto=compress&cs=tinysrgb&w=400">
+    <link rel="preload" fetchpriority="high" as="image" href="https://images.pexels.com/photos/1893557/pexels-photo-1893557.jpeg?auto=compress&cs=tinysrgb&w=400">
+
+    <!-- Intersection Observer for lazy loading -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Jalta</div>
+        <ul class="nav-links">
+            <li><a href="#meat-burgers">برجر لحم</a></li>
+            <li><a href="#chicken-burgers">برجر دجاج</a></li>
+            <li><a href="#fries">البطاطا</a></li>
+            <li><a href="#hot-dog">هوت دوج</a></li>
+            <li><a href="#drinks">المشروبات</a></li>
+            <li><a href="#dips">الصوصات</a></li>
+            <div class="contact-info">
+                <li class="contact-item">
+                    <a href="tel:0777777777" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        هاتف: 0777777777
+                    </a>
+                </li>
+                <li class="contact-item">
+                    <a href="https://wa.me/962777777777" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        واتساب: 0777777777
+                    </a>
+                </li>
+            </div>
+        </ul>
+        <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="container">
+        <main>
+            <!-- Meat Burgers Section -->
+            <section class="menu-section" id="meat-burgers">
+                <h2>برجر لحم</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Classic Burger">
+                            <div class="price-tag">
+                                <span>S: 2.00 JD</span>
+                                <span>M: 2.75 JD</span>
+                                <span>L: 3.50 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Classic Burger كلاسيك برجر</h3>
+                            <p class="description">برجر لحم مع خس وطماطم وصوص خاص</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500" alt="Smoke Charcoal Burger">
+                            <div class="price-tag">
+                                <span>S: 2.25 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Smoke Charcoal Burger سموك تشاركول برجر</h3>
+                            <p class="description">برجر لحم مشوي على الفحم مع صوص سموك خاص، خس، وجبنة شيدر</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Alfredo Burger">
+                            <div class="price-tag">
+                                <span>S: 2.50 JD</span>
+                                <span>M: 3.25 JD</span>
+                                <span>L: 4.00 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Alfredo Burger الفريدو برجر</h3>
+                            <p class="description">برجر لحم مع صوص الفريدو الكريمي، فطر سوتيه، وجبنة موزاريلا</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Mexican Jalta Burger">
+                            <div class="price-tag">
+                                <span>S: 2.50 JD</span>
+                                <span>M: 3.25 JD</span>
+                                <span>L: 4.00 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Mexican Jalta Burger مكسيكان جلطة برجر</h3>
+                            <p class="description">برجر لحم مع صوص مكسيكي، جبنة شيدر، فلفل حار، ومخلل</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="T.N.T Burger">
+                            <div class="price-tag">
+                                <span>S: 2.25 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>T.N.T Burger برجر تي ان تي</h3>
+                            <p class="description">برجر لحم مع صوص تي ان تي، فطر سوتيه، وجبنة موزاريلا</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chicken Burgers Section -->
+            <section class="menu-section" id="chicken-burgers">
+                <h2>برجر دجاج</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=500" alt="Chicken Burger">
+                            <div class="price-tag">
+                                <span>S: 1.75 JD</span>
+                                <span>M: 2.25 JD</span>
+                                <span>L: 2.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Chicken Burger تشيكن برجر</h3>
+                            <p class="description">برجر دجاج مع صوص تشيكن، خس، وجبنة شيدر</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500" alt="Charcoal Chicken Mosaic Burger">
+                            <div class="price-tag">
+                                <span>S: 2.25 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Charcoal Chicken Mosaic Burger تشاركول تشيكن موزاييك برجر</h3>
+                            <p class="description">برجر دجاج مشوي على الفحم مع صوص موزاييك، خس، وجبنة شيدر</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Charcoal Chicken Caesar Burger">
+                            <div class="price-tag">
+                                <span>S: 2.25 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Charcoal Chicken Caesar Burger تشاركول تشيكن سيزر برجر</h3>
+                            <p class="description">برجر دجاج مشوي على الفحم مع صوص سيزر، خس، وجبنة بارميزان</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Smoke Grill Chicken Burger">
+                            <div class="price-tag">
+                                <span>S: 2.00 JD</span>
+                                <span>M: 2.75 JD</span>
+                                <span>L: 3.50 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Smoke Grill Chicken Burger سموك جريل تشيكن برجر</h3>
+                            <p class="description">برجر دجاج مع صوص سموك، جبنة شيدر، خس، ومخلل</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Buffalo Chicken Burger">
+                            <div class="price-tag">
+                                <span>S: 2.00 JD</span>
+                                <span>M: 2.75 JD</span>
+                                <span>L: 3.50 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Buffalo Chicken Burger بوفالو تشيكن برجر</h3>
+                            <p class="description">برجر دجاج مع صوص بوفالو، خس، وجبنة شيدر</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hot Dog Section -->
+            <section class="menu-section" id="hot-dog">
+                <h2>هوت دوج</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Special Hot Dog Sandwich">
+                            <div class="price-tag">
+                                <span>S: 1.75 JD</span>
+                                <span>M: 2.25 JD</span>
+                                <span>L: 2.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Special Hot Dog سبيشال هوت دوج</h3>
+                            <p class="description">هوت دوج مع جبنة وصوص خاص</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500" alt="Classic Hot Dog Sandwich">
+                            <div class="price-tag">
+                                <span>S: 1.50 JD</span>
+                                <span>M: 2.00 JD</span>
+                                <span>L: 2.50 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Classic Hot Dog كلاسيك هوت دوج</h3>
+                            <p class="description">هوت دوج كلاسيكي مع الصوص</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jalta Steak Section -->
+            <section class="menu-section" id="steak">
+                <h2>جلطة ستيك</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=500" alt="Boom Steak">
+                            <div class="price-tag">
+                                <span>S: 4.45 JD</span>
+                                <span>M: 5.75 JD</span>
+                                <span>L: 7.00 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Boom Steak بوم ستيك</h3>
+                            <p class="description">ستيك مع خس، فلفل، مايونيز، وجبنة شيدر</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fries Section -->
+            <section class="menu-section" id="fries">
+                <h2>البطاطا</h2>
+                <div class="menu-items">
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                                 alt="French Fries" 
+                                 fetchpriority="high">
+                            <div class="price-tag">
+                                <span>S: 1.00 JD</span>
+                                <span>M: 1.50 JD</span>
+                                <span>L: 2.00 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>French Fries فرنش فرايز</h3>
+                            <p class="description">بطاطا مقلية ذهبية مقرمشة</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                 alt="Curly Fries"
+                                 fetchpriority="high">
+                            <div class="price-tag">
+                                <span>S: 1.50 JD</span>
+                                <span>M: 2.00 JD</span>
+                                <span>L: 2.50 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Curly Fries كيرلي فرايز</h3>
+                            <p class="description">بطاطا حلزونية مقرمشة</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img data-src="https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="Wedgies Fries">
+                            <div class="price-tag">
+                                <span>S: 1.50 JD</span>
+                                <span>M: 2.00 JD</span>
+                                <span>L: 2.50 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Wedgies Fries ويدجيز فرايز</h3>
+                            <p class="description">بطاطا ودجز سميكة مقرمشة</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img data-src="https://images.pexels.com/photos/1893557/pexels-photo-1893557.jpeg?auto=compress&cs=tinysrgb&w=400"
+                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                 alt="Bollens Fries">
+                            <div class="price-tag">
+                                <span>S: 1.50 JD</span>
+                                <span>M: 2.00 JD</span>
+                                <span>L: 2.50 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Bollens Fries بولنز فرايز</h3>
+                            <p class="description">كرات البطاطا المقرمشة</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Astraganov Fries" loading="lazy">
+                            <div class="price-tag">
+                                <span>S: 2.75 JD</span>
+                                <span>M: 3.25 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Astraganov Fries استراجانوف فرايز</h3>
+                            <p class="description">بطاطا مع صوص استراجانوف، فطر، بصل، وموزاريلا</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2098087/pexels-photo-2098087.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fajita Fries" loading="lazy">
+                            <div class="price-tag">
+                                <span>S: 2.50 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Fajita Fries فاهيتا فرايز</h3>
+                            <p class="description">بطاطا مع فاهيتا اللحم المتبلة</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2098088/pexels-photo-2098088.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Alfredo Fries" loading="lazy">
+                            <div class="price-tag">
+                                <span>S: 2.50 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Alfredo Fries الفريدو فرايز</h3>
+                            <p class="description">بطاطا مع صوص الفريدو، دجاج، وموزاريلا</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2098089/pexels-photo-2098089.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Indian Fries" loading="lazy">
+                            <div class="price-tag">
+                                <span>S: 2.50 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Indian Fries انديان فرايز</h3>
+                            <p class="description">بطاطا مع التوابل الهندية، صوص كاري، وموزاريلا</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2098090/pexels-photo-2098090.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Barbecue Fries" loading="lazy">
+                            <div class="price-tag">
+                                <span>S: 2.50 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Barbecue Fries باربكيو فرايز</h3>
+                            <p class="description">بطاطا مع صوص الباربكيو، دجاج، وموزاريلا</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2098091/pexels-photo-2098091.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dynamite Fries" loading="lazy">
+                            <div class="price-tag">
+                                <span>S: 2.50 JD</span>
+                                <span>M: 3.00 JD</span>
+                                <span>L: 3.75 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Dynamite Fries دايناميت فرايز</h3>
+                            <p class="description">بطاطا مع صوص الدايناميت الحار، دجاج، وجبنة شيدر</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dips Section -->
+            <section class="menu-section" id="dips">
+                <h2>الصوصات</h2>
+                <div class="menu-items sauce-grid">
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dynamite Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Dynamite Sauce صوص دايناميت</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2789328/pexels-photo-2789328.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Buffalo Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Buffalo Sauce صوص بوفالو</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=600" alt="BBQ Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Barbecue Sauce صوص باربكيو</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Corn Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Corn Sauce صوص ذرة</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cheese Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Cheese Sauce صوص جبنة</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2689419/pexels-photo-2689419.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sweet Chili Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Sweet Chili Sauce صوص سويت تشيلي</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/1435896/pexels-photo-1435896.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cheetos Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Cheetos Sauce صوص شيتوس</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Honey Mustard Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Honey Mustard Sauce صوص هني مستارد</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card sauce-card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sriracha Sauce" loading="lazy">
+                            <div class="price-tag">
+                                <span>0.35 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Sriracha Sauce صوص سريراتشا</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Drinks Section -->
+            <section class="menu-section" id="drinks">
+                <h2>المشروبات</h2>
+                <div class="menu-items drinks-grid">
+                    <div class="menu-card drink-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504" alt="Water">
+                            <div class="price-tag">
+                                <span>0.25 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Water ماء</h3>
+                        </div>
+                    </div>
+
+                    <div class="menu-card drink-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a" alt="Soft Drink">
+                            <div class="price-tag">
+                                <span>0.30 JD</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Soft Drink مشروب غازي</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ساعات العمل</h4>
+                <p>كل يوم: 11:00 صباحاً - 12:00 منتصف الليل</p>
+            </div>
+            <div class="footer-section">
+                <h4>تواصل معنا</h4>
+                <p>هاتف: 0777777777</p>
+                <p>واتساب: 0777777777</p>
+            </div>
+            <div class="footer-section">
+                <h4>العنوان</h4>
+                <p>عمان - الأردن</p>
+                <p>شارع الرئيسي</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2024 Jalta Burger. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <div class="steam-background"></div>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navbar = document.querySelector('.navbar');
+
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>
